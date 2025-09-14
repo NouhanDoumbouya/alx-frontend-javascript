@@ -1,22 +1,27 @@
 // 0x04-TypeScript/task_1/js/main.ts
 
-// 1. Define the Teacher interface
+// 1. Teacher interface
 interface Teacher {
-  readonly firstName: string;           // read-only after initialization
-  readonly lastName: string;            // read-only after initialization
-  fullTimeEmployee: boolean;            // must always be defined
-  yearsOfExperience?: number;           // optional
-  location: string;                     // must always be defined
-  [key: string]: any;                   // allow any additional properties
+  readonly firstName: string;        // cannot be changed after initialization
+  readonly lastName: string;         // cannot be changed after initialization
+  fullTimeEmployee: boolean;         // always required
+  yearsOfExperience?: number;        // optional
+  location: string;                  // always required
+  [key: string]: any;                // allow extra properties
 }
 
-// 2. Example usage
-const teacher3: Teacher = {
+// 2. Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;           // required for Directors
+}
+
+// 3. Example usage
+const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
-  fullTimeEmployee: false,
   location: 'London',
-  contract: false, // extra property allowed
+  fullTimeEmployee: true,
+  numberOfReports: 17,
 };
 
-console.log(teacher3);
+console.log(director1);
