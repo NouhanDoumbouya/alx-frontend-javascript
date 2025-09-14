@@ -10,13 +10,13 @@ interface Teacher {
   [key: string]: any;                // allow extra properties
 }
 
-// 2. Directors interface extending Teacher
-interface Directors extends Teacher {
-  numberOfReports: number;           // required for Directors
+// 2. Director interface extending Teacher (note: singular 'Director')
+interface Director extends Teacher {
+  numberOfReports: number;           // required for Director
 }
 
 // 3. Example usage
-const director1: Directors = {
+const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
   location: 'London',
