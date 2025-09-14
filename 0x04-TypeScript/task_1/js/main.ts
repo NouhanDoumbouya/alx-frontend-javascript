@@ -21,11 +21,10 @@ interface printTeacherFunction {
 }
 
 // 4. Standard function declaration with destructured parameters
-function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  return `${firstName[0]}. ${lastName}`;
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName}. ${lastName}`;
 }
 
-// Example usage
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -35,4 +34,4 @@ const director1: Director = {
 };
 
 console.log(director1);
-console.log(printTeacher({ firstName: 'John', lastName: 'Doe' })); // J. Doe
+console.log(printTeacher('John', 'Doe')); // J. Doe
