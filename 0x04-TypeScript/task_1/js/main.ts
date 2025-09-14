@@ -21,7 +21,7 @@ interface printTeacherFunction {
 }
 
 // 4. Standard function declaration with destructured parameters
-function printTeacher(firstName: string, lastName: string): string {
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
   return `${firstName}. ${lastName}`;
 }
 
