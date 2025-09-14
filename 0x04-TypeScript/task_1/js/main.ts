@@ -2,20 +2,30 @@
 
 // 1. Teacher interface
 interface Teacher {
-  readonly firstName: string;        // cannot be changed after initialization
-  readonly lastName: string;         // cannot be changed after initialization
-  fullTimeEmployee: boolean;         // always required
-  yearsOfExperience?: number;        // optional
-  location: string;                  // always required
-  [key: string]: any;                // allow extra properties
+  readonly firstName: string;
+  readonly lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
+  [key: string]: any;
 }
 
-// 2. Director interface extending Teacher (note: singular 'Director')
+// 2. Director interface
 interface Director extends Teacher {
-  numberOfReports: number;           // required for Director
+  numberOfReports: number;
 }
 
-// 3. Example usage
+// 3. Interface for the printTeacher function
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// 4. Implementation of the function
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+// Example usage
 const director1: Director = {
   firstName: 'John',
   lastName: 'Doe',
@@ -25,3 +35,4 @@ const director1: Director = {
 };
 
 console.log(director1);
+console.log(printTeacher('John', 'Doe')); // J. Doe
