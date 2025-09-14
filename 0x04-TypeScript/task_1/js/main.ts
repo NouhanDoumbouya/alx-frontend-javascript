@@ -33,5 +33,37 @@ const director1: Director = {
   numberOfReports: 17,
 };
 
+/* ---------- New Interfaces for StudentClass ---------- */
+
+// Describes the constructor signature of StudentClass
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+// Describes the instance methods and properties
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+/* ---------- Class Implementation ---------- */
+
+class StudentClass implements StudentClassInterface {
+  constructor(private firstName: string, private lastName: string) {}
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+/* ---------- Example Usage ---------- */
 console.log(director1);
 console.log(printTeacher('John', 'Doe')); // J. Doe
+
+const student: StudentClassInterface = new StudentClass('Alice', 'Johnson');
+console.log(student.displayName());   // Alice
+console.log(student.workOnHomework());
